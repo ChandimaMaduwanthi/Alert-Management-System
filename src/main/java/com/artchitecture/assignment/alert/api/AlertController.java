@@ -12,8 +12,14 @@ public class AlertController {
     private AlertService alertService;
 
     @GetMapping("/alert")
-    AlertStatus getAlert(@RequestParam String sensor_id){
+    public AlertStatus getAlert(@RequestParam String sensor_id){
         return alertService.getAlert(sensor_id);
+    }
+
+    @GetMapping("/alertHistory")
+    public AlertData getAlertHistory(@RequestParam String sensor_id){
+        return alertService.getAlertHistory(sensor_id);
+
     }
 
 }
