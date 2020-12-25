@@ -1,7 +1,7 @@
 package com.artchitecture.assignment.alert.api.controller;
 
-import com.artchitecture.assignment.alert.api.DataRepository;
-import com.artchitecture.assignment.alert.api.SensorData;
+import com.artchitecture.assignment.alert.api.repository.DataRepository;
+import com.artchitecture.assignment.alert.api.model.SensorData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

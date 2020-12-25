@@ -1,6 +1,6 @@
 package com.artchitecture.assignment.alert.api.controller;
 
-import com.artchitecture.assignment.alert.api.AlertData;
+import com.artchitecture.assignment.alert.api.model.AlertData;
 import com.artchitecture.assignment.alert.api.service.AlertService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

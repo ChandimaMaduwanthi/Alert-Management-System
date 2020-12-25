@@ -1,12 +1,12 @@
-package com.artchitecture.assignment.alert.api;
+package com.artchitecture.assignment.alert.api.model;
 
 public class AlertData {
 
     private String sensor_id;
-    private AlertStatus alertStatus;
+    private String alertStatus;
     private String date;
 
-    public AlertData(String sensor_id, AlertStatus alertStatus,String date) {
+    public AlertData(String sensor_id, String alertStatus,String date) {
         this.sensor_id = sensor_id;
         this.alertStatus = alertStatus;
         this.date = date;
@@ -20,11 +20,11 @@ public class AlertData {
         this.sensor_id = sensor_id;
     }
 
-    public AlertStatus getAlertStatus() {
+    public String getAlertStatus() {
         return alertStatus;
     }
 
-    public void setAlertStatus(AlertStatus alertStatus) {
+    public void setAlertStatus(String alertStatus) {
         this.alertStatus = alertStatus;
     }
 

@@ -1,8 +1,8 @@
 package com.artchitecture.assignment.alert.api.service;
 
-import com.artchitecture.assignment.alert.api.AlertData;
-import com.artchitecture.assignment.alert.api.DataRepository;
-import com.artchitecture.assignment.alert.api.SensorData;
+import com.artchitecture.assignment.alert.api.model.AlertData;
+import com.artchitecture.assignment.alert.api.repository.DataRepository;
+import com.artchitecture.assignment.alert.api.model.SensorData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
