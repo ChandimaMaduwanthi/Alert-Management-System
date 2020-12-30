@@ -12,4 +12,7 @@ import java.util.List;
 public interface SensorReadingsRepository extends JpaRepository<SensorReadings, Integer> {
     @Query("select r from SensorReadings r where r.sensor_id=:x")
     List<SensorReadings> findBySensorId(@Param("x") int sensor_id);
+
+    @Query("SELECT r FROM SensorReadings r WHERE date in ( SELECT MAX(date) from SensorReadings)")
+    SensorReadings findLatestReading();
 }

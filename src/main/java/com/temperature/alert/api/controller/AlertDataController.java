@@ -30,4 +30,9 @@ public class AlertDataController {
     public List<AlertData> getAlertsById(@PathVariable int sensor_id){
         return alertDataService.getAlertsById(sensor_id);
     }
+
+    @GetMapping("/alerts/latest")
+    public AlertData getLatestReadings(){
+        return alertDataService.getLatestAlert();
+    }
 }

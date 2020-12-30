@@ -18,4 +18,8 @@ public class SensorReadingsService {
         return sensorReadingsRepository.findBySensorId(sensor_id);
     }
 
+    public SensorReadings getLatestReadings(){
+        return sensorReadingsRepository.findLatestReading();
+    }
+
 }

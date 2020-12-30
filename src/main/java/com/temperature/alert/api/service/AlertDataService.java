@@ -20,4 +20,7 @@ public class AlertDataService {
         return alertDataRepository.findBySensorId(sensor_id);
     }
 
+    public AlertData getLatestAlert(){
+        return alertDataRepository.findLatestAlert();
+    }
 }

@@ -13,4 +13,7 @@ import java.util.List;
 public interface AlertDataRepository extends JpaRepository<AlertData,Integer> {
     @Query("select a from AlertData a where a.sensor_id=:x")
     List<AlertData> findBySensorId(@Param("x") int sensor_id);
+
+    @Query("SELECT a FROM AlertData a WHERE date in ( SELECT MAX(date) from AlertData)")
+    AlertData findLatestAlert();
 }

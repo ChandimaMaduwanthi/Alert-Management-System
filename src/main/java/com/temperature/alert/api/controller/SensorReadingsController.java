@@ -29,4 +29,9 @@ public class SensorReadingsController {
         return sensorReadingsService.getReadingsById(sensor_id);
     }
 
+    @GetMapping("/readings/latest")
+    public SensorReadings getLatestReadings(){
+        return sensorReadingsService.getLatestReadings();
+    }
+
 }
