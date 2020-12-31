@@ -14,6 +14,7 @@ class App extends Component {
   }
 
   handleChange(event) {
+    alert(event.target.value);
     this.setState({value: event.target.value});
   }
 
@@ -33,6 +34,7 @@ class App extends Component {
               <div style={{float:'left',padding:"20px"}}>
                 <h1>Outdoor Temperature</h1>
                 <h3>16 secounds ago</h3>
+                <h3>Sensor {this.state.value}</h3>
               </div>
               <div style={{float:'left',padding:"20px"}}>
                 
@@ -42,11 +44,18 @@ class App extends Component {
               <div style={{float:'left',padding:"20px"}}>
                   <label for="cars">Choose a Sensor:</label>
                   <form onSubmit={this.handleSubmit} style={{zIndex:"100"}}>
-                  <label>
+                  {/* <label>
                   Name:
                   <input type="text" value={this.state.value} onChange={this.handleChange} />
-                </label>
-                <input type="submit" value="Submit" />
+                </label> */}
+
+                {/* <input type="submit" value="Submit" /> */}
+                <select onChange={this.handleChange} value={this.state.value}>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                </select>
               </form>
                   
                 
