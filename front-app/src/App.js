@@ -6,14 +6,27 @@ class App extends Component {
     super(props);
  
     this.state = {
-      
+      value:"2"
     }
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    alert('A name was submitted: ' + this.state.value);
+    event.preventDefault();
   }
   render() {
+    const {  value } = this.state;
     return (
       <>
         <div className="mainContainer">
-          <div className="titleContainer">
+          <div className="titleContainer" style={{height:"200px"}}>
               <div style={{float:'left',padding:"60px"}}>
                   <i class="fas fa-temperature-low" style={{fontSize:"60px"}}></i>  
               </div>
@@ -28,19 +41,20 @@ class App extends Component {
 
               <div style={{float:'left',padding:"20px"}}>
                   <label for="cars">Choose a Sensor:</label>
-
-                  <select name="cars" id="cars">
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
-                  </select>
+                  <form onSubmit={this.handleSubmit} style={{zIndex:"100"}}>
+                  <label>
+                  Name:
+                  <input type="text" value={this.state.value} onChange={this.handleChange} />
+                </label>
+                <input type="submit" value="Submit" />
+              </form>
+                  
                 
               </div>
               
               
           </div>
-          <div className="chartContainer">
+          <div className="chartContainer" >
               <ChartShow/>
           </div>
         </div>

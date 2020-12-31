@@ -19,11 +19,13 @@ class ChartShow extends Component {
       }]
     }
   }
+
+  
   render() {
     return (
       <>
         
-            <Chart options={this.state.options} series={this.state.series} type="line" height={400} />
+            <Chart   options={this.state.options} series={this.state.series} type="line" height={400} />
           
 
       </>
