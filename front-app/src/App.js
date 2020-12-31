@@ -1,27 +1,46 @@
 import Chart from 'react-apexcharts'
 import React, { Component } from 'react'
 import ChartShow from './components/ChartShow';
+import TAgo from './components/TAgo';
+import AlertVal from './components/AlertVal';
+var mainData = require('./MainData.json')
 class App extends Component {
   constructor(props) {
     super(props);
  
     this.state = {
       value:"2",
-      senosrChart:<ChartShow/>
+      senosrChart:<ChartShow sensor="4"/>
     }
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount(){
+    axios.get(mainData.url+'MyCart/'+this.state.data.data.username).then(
+        response => {
+            console.log(response)
+            // this.setState({item:response.data.rows})
+           
+        }
+    )
+    .catch(error => {
+        console.log(error)
+    })
+    
+}
+
+componentDidUpdate(){
+    this.componentDidMount();
+}
+
   handleChange(event) {
-    alert(event.target.value);
     this.setState({value: event.target.value});
-    this.setState({senosrChart:<ChartShow/>})
+    this.setState({senosrChart:<ChartShow sensor="4"/>})
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
   }
   render() {
@@ -35,12 +54,12 @@ class App extends Component {
               </div>
               <div style={{float:'left',padding:"20px"}}>
                 <h1>Outdoor Temperature</h1>
-                <h3>16 secounds ago</h3>
+                  <TAgo sensor="4"/>
                 <h3>Sensor {this.state.value}</h3>
               </div>
               <div style={{float:'left',padding:"20px"}}>
+                <AlertVal sensor="4"/>
                 
-                <h1 style={{fontSize:"60px"}}>50F</h1>
               </div>
 
               <div style={{float:'left',padding:"20px"}}>
