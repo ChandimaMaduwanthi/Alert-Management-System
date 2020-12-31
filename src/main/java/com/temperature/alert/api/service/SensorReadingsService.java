@@ -14,6 +14,10 @@ public class SensorReadingsService {
     @Autowired
     SensorReadingsRepository sensorReadingsRepository;
 
+    public List<SensorReadings> getReadings(){
+        return sensorReadingsRepository.findAll();
+    }
+
     public List<SensorReadings> getReadingsById(int sensor_id){
         return sensorReadingsRepository.findBySensorId(sensor_id);
     }

@@ -3,6 +3,8 @@ package com.temperature.alert.api.model;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Map;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
@@ -36,4 +38,5 @@ public class SensorData {
     public void setThreshold(String threshold) {
         this.threshold = threshold;
     }
+
 }
