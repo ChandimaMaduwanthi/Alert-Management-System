@@ -12,8 +12,7 @@ class App extends Component {
     this.state = {
       value:"2",
       senosrChart:<ChartShow sensor="4"/>,
-      sensorNames:null,
-      sensorIds:null
+      sensorData:[],
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -23,9 +22,8 @@ class App extends Component {
   componentDidMount(){
     axios.get(mainData.sensorData).then(
         response => {
-            console.log("res"+JSON.stringify(response.data.sensorNames))
-            this.setState({sensorNames:response.data.sensorNames})
-            this.setState({sensorIds:response.data.IDS})
+            console.log("res"+JSON.stringify(response.data.data))
+            this.setState({sensorData:response.data.data})
            
         }
     )
@@ -35,9 +33,9 @@ class App extends Component {
     
 }
 
-componentDidUpdate(){
-    this.componentDidMount();
-}
+// componentDidUpdate(){
+//     this.componentDidMount();
+// }
 
   handleChange(event) {
     this.setState({value: event.target.value});
@@ -76,14 +74,12 @@ componentDidUpdate(){
 
                 {/* <input type="submit" value="Submit" /> */}
                 <select onChange={this.handleChange} value={this.state.value}>
-                  {
-                    this.state.sensorNames.map(
-                      x=>{
-                        <option>xx</option>
-                      }
-                    )
-                  }
+                      {this.state.sensorData.map(x=>(
+                        <option value={x.id}>{x.name}</option>
+                    ))}
                 </select>
+
+                
               </form>
                   
                 
