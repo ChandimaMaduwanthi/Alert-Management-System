@@ -1,5 +1,7 @@
 {
     "url":"http://192.168.8.149:7000/",
     "sensorData":"http://localhost:7000/json/sensors.json",
-    "readings":"http://localhost:7000/json/a.json"
+    "readings":"http://localhost:7000/json/a.json",
+    "one":"http://localhost:7000/json/one.json"
+
 }

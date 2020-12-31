@@ -11,7 +11,7 @@ class ChartShow extends Component {
       options:{},
       series: [{
         name: 'F',
-        data: [30, 40, 45,50]
+        data: []
       }]
     }
   }
