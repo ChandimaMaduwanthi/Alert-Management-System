@@ -11,13 +11,10 @@ import javax.mail.MessagingException;
 public class Application {
 
 	public static void main(String[] args) {
-		public static void main(String[] args) throws MessagingException {
-
-			//Email notification call in here.
 
 
 			String bodyData;
-			EmailSender.sentMail(bodyData: "Temperature sensor -T002 has exceed the 35C threshold and its recode is 38C");
+			//EmailSender.sentMail(bodyData: "Temperature sensor -T002 has exceed the 35C threshold and its recode is 38C");
 
 
 			SpringApplication.run(Application.class, args);
