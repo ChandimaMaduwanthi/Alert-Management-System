@@ -1,0 +1,10 @@
+body{
+  margin:0px;
+  padding: 0px;
+}
+
+.mainContainer{
+  width: 100vh;
+  height: 100vh;
+  background-color:red ;
+}

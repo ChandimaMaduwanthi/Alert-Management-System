@@ -5,6 +5,7 @@ import com.temperature.alert.api.repository.SensorDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -20,5 +21,4 @@ public class SensorDataService {
     public SensorData getSensorById(int id){
         return sensorDataRepository.findBySensorId(id);
     }
-
 }

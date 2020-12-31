@@ -16,6 +16,10 @@ public class AlertDataService {
     @Autowired
     AlertDataRepository alertDataRepository;
 
+    public List<AlertData> getAlerts(){
+        return alertDataRepository.findAll();
+    }
+
     public List<AlertData> getAlertsById(int sensor_id){
         return alertDataRepository.findBySensorId(sensor_id);
     }
