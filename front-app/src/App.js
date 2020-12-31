@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-
+import Chart from 'react-apexcharts'
 function App() {
   return (
     <>
