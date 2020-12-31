@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import ChartShow from './components/ChartShow';
 import TAgo from './components/TAgo';
 import AlertVal from './components/AlertVal';
+import axios from 'axios';
 var mainData = require('./MainData.json')
 class App extends Component {
   constructor(props) {
@@ -10,7 +11,9 @@ class App extends Component {
  
     this.state = {
       value:"2",
-      senosrChart:<ChartShow sensor="4"/>
+      senosrChart:<ChartShow sensor="4"/>,
+      sensorNames:null,
+      sensorIds:null
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -18,10 +21,11 @@ class App extends Component {
   }
 
   componentDidMount(){
-    axios.get(mainData.url+'MyCart/'+this.state.data.data.username).then(
+    axios.get(mainData.sensorData).then(
         response => {
-            console.log(response)
-            // this.setState({item:response.data.rows})
+            console.log("res"+JSON.stringify(response.data.sensorNames))
+            this.setState({sensorNames:response.data.sensorNames})
+            this.setState({sensorIds:response.data.IDS})
            
         }
     )
@@ -72,10 +76,13 @@ componentDidUpdate(){
 
                 {/* <input type="submit" value="Submit" /> */}
                 <select onChange={this.handleChange} value={this.state.value}>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
+                  {
+                    this.state.sensorNames.map(
+                      x=>{
+                        <option>xx</option>
+                      }
+                    )
+                  }
                 </select>
               </form>
                   

@@ -1,4 +1,4 @@
 {
     "url":"http://192.168.8.149:7000/",
-    "sensorData":"https://jsonkeeper.com/b/IHJD"
+    "sensorData":"http://localhost:7000/json/sensors.json"
 }
