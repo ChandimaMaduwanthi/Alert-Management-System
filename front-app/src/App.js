@@ -6,7 +6,8 @@ class App extends Component {
     super(props);
  
     this.state = {
-      value:"2"
+      value:"2",
+      senosrChart:<ChartShow/>
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -16,6 +17,7 @@ class App extends Component {
   handleChange(event) {
     alert(event.target.value);
     this.setState({value: event.target.value});
+    this.setState({senosrChart:<ChartShow/>})
   }
 
   handleSubmit(event) {
@@ -64,7 +66,8 @@ class App extends Component {
               
           </div>
           <div className="chartContainer" >
-              <ChartShow/>
+              {this.state.senosrChart}
+              
           </div>
         </div>
 
