@@ -9,33 +9,36 @@ import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 
 public class EmailSender {
-    private static String USER_NAME = "gamagepeshaladush";
+    private static String USER_NAME = "sender";
     //  GMail user name (just the part before "@gmail.com")
-    private static String PASSWORD = "dush123@"; // GMail password
-    private static String RECIPIENT = "pdushyanthika@gmail.com"; //receiver password
+    private static String PASSWORD = "us123@123"; // GMail password
+    private static String RECIPIENT = "receiver@gmail.com"; //receiver password
 
-    public static void sentMail( String bodyData) {
+    public static void sentMail() {
         String from = USER_NAME;
         String pass = PASSWORD;
         String[] to = { RECIPIENT }; // list of recipient email addresses
         String subject = "Wether app threshold alert warning";  //Put the email subject
-        String body = bodyData; //Put email body
+        String body = "----"; //Put email body
         sendFromGMail(from, pass, to, subject, body);
 
 
-        System.out.println("\t"+subject);
-        System.out.println("----");
-        System.out.println("\t"+bodyData);
+//        System.out.println("\t"+subject);
+//        System.out.println("----");
+//        System.out.println("\t"+bodyData);
     }
 
     private static void sendFromGMail(String from, String pass, String[] to, String subject, String body) {
         Properties props = System.getProperties();
         String host = "smtp.gmail.com";
 
-        props.put("mail.smtp.starttls.enable", "true");
 
-        props.put("mail.smtp.ssl.trust", host);
-        props.put("mail.smtp.user", from);
+           //<--------Set up a mail server------->
+
+    props.put("mail.smtp.starttls.enable", "true");
+
+      props.put("mail.smtp.ssl.trust", host);
+       props.put("mail.smtp.user", from);
         props.put("mail.smtp.password", pass);
         props.put("mail.smtp.port", "587");
         props.put("mail.smtp.auth", "true");
@@ -63,6 +66,8 @@ public class EmailSender {
             transport.connect(host, from, pass);
             transport.sendMessage(message, message.getAllRecipients());
             transport.close();
+
+            System.out.println("Email sent successfully....");
 
         }
         catch (MessagingException ae) {
